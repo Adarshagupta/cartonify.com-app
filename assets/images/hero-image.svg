@@ -1,0 +1,32 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="400" height="400" rx="20" fill="url(#paint0_radial)" />
+  
+  <!-- Decorative circles -->
+  <circle cx="200" cy="200" r="120" stroke="rgba(255, 255, 255, 0.8)" stroke-width="4" stroke-dasharray="4 6" />
+  <circle cx="200" cy="200" r="80" stroke="rgba(255, 255, 255, 0.6)" stroke-width="3" />
+  
+  <!-- Magic wand -->
+  <g transform="translate(200, 200) rotate(-30) translate(-200, -200)">
+    <rect x="190" y="130" width="20" height="140" rx="10" fill="white" />
+    <path d="M200 120 L220 90 L180 90 Z" fill="white" />
+    
+    <!-- Sparkles -->
+    <circle cx="240" cy="100" r="8" fill="white" opacity="0.9" />
+    <circle cx="260" cy="130" r="6" fill="white" opacity="0.7" />
+    <circle cx="230" cy="150" r="5" fill="white" opacity="0.8" />
+    <circle cx="250" cy="170" r="4" fill="white" opacity="0.6" />
+    <circle cx="160" cy="110" r="7" fill="white" opacity="0.8" />
+    <circle cx="140" cy="140" r="5" fill="white" opacity="0.7" />
+    <circle cx="170" cy="160" r="4" fill="white" opacity="0.9" />
+  </g>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 200) rotate(90) scale(200)">
+      <stop offset="0" stop-color="#9F5EFF" />
+      <stop offset="0.6" stop-color="#8A2BE2" />
+      <stop offset="1" stop-color="#4B0082" />
+    </radialGradient>
+  </defs>
+</svg> 
