@@ -21,11 +21,20 @@ module.exports = ({ config }) => {
     ...config,
     name: "Cartonify",
     slug: "cartonify",
+    android: {
+      package: "com.cartonify.expo",
+      versionCode: 1,
+      adaptiveIcon: {
+        foregroundImage: "./assets/images/icon.png",
+        backgroundColor: "#ffffff"
+      }
+    },
+    ios: {
+      bundleIdentifier: "com.cartonify.expo",
+      supportsTablet: true
+    },
     extra: {
-      replicateApiKey,
-      eas: {
-        projectId: "your-eas-project-id",
-      },
+      replicateApiKey
     },
   };
 }; 
