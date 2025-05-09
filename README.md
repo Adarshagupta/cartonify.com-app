@@ -84,4 +84,4 @@ Parameters that can be adjusted include:
 
 ## License
 
-MIT 
+MIT # cartonify.com-app
