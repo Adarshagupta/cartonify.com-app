@@ -10,61 +10,131 @@ A React Native/Expo app for AI image generation using Replicate's Flux model.
 - Save generated images to your device
 - Share images directly from the app
 
-## Setup
+## Developer Guide
 
-### 1. Installation
+### 1. Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or newer recommended)
+- npm or yarn
+- Git
+- Expo CLI (`npm install -g expo-cli`)
+- Xcode (for iOS development)
+- Android Studio (for Android development)
+
+### 2. Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd cartonify
+
 # Install dependencies
 npm install
 ```
 
-### 2. Replicate API Key
+### 3. Environment Setup
 
-You need to get an API key from Replicate to use the Flux image generation:
-
-1. Create an account on [Replicate](https://replicate.com/)
-2. Go to your account settings and create an API token
-3. Set the API key as an environment variable:
+You need to set up environment variables for the API integration:
 
 ```bash
-# For development
-export REPLICATE_API_KEY=your_api_key_here
+# Create a .env file in the project root
+cp .env.example .env  # If .env.example exists, otherwise create a new file
 
-# Or create a .env file (don't commit this to git)
+# Edit the .env file and add your Replicate API key
 echo "REPLICATE_API_KEY=your_api_key_here" > .env
 ```
 
-### 3. Run the app
+To get a Replicate API key:
+1. Create an account on [Replicate](https://replicate.com/)
+2. Go to your account settings and create an API token
+
+### 4. Running the App
 
 ```bash
 # Start the development server
 npm run dev
+
+# Run on iOS
+npm run ios
+
+# Run on Android
+npm run android
 ```
 
-## Usage
+When you run the development server, you'll get a QR code. You can:
+- Scan the QR code with the Expo Go app on your physical device
+- Press 'i' to open in iOS simulator
+- Press 'a' to open in Android emulator
 
-1. Navigate to the "Generate" tab
-2. Enter a text prompt describing the image you want to create
-3. Select a style preset or use the advanced settings
-4. Tap "Generate" to create your image
-5. Save or share the generated image
+### 5. Code Structure
 
-## Style Presets
+- `/app`: Contains the main app screens and navigation (using Expo Router)
+- `/components`: Reusable UI components
+- `/hooks`: Custom React hooks
+- `/utils`: Utility functions and API integration
+- `/assets`: Images, fonts, and other static assets
 
-- **Photorealistic**: High-quality, realistic images
-- **Cinematic**: Movie-style images with dramatic lighting
-- **Anime**: Anime/manga style illustrations
-- **Abstract**: Artistic, abstract compositions
-- **Watercolor**: Soft, flowing watercolor style
-- **Digital**: Clean, modern digital art
-- **Vintage**: Retro, nostalgic imagery
+### 6. Making Changes
 
-## Advanced Settings
+1. **Code Editing**:
+   - Use your preferred code editor (VS Code recommended)
+   - Follow the existing code style and patterns
+   - Fix React imports where needed (e.g., `import React from 'react'`)
 
-- **Image Dimensions**: Choose from square, portrait, or landscape formats
-- **Number of Samples**: Generate multiple variations (1, 2, or 4)
-- **Enhance Prompt**: Automatically enhance your prompt with additional details
+2. **Component Structure**:
+   - Components should be modular and reusable
+   - Place new components in `/components`
+   - Page-specific components can be co-located with their page
+
+3. **Styling**:
+   - Use StyleSheet for defining styles
+   - Follow the existing styling patterns
+   - Keep styles with their respective components
+
+### 7. Building for Production
+
+```bash
+# Build for web
+npm run build:web
+
+# Build for iOS/Android using EAS
+npx eas build --platform ios
+npx eas build --platform android
+```
+
+For EAS builds, you'll need to configure your `eas.json` file and have an Expo account.
+
+### 8. Testing
+
+1. **Manual Testing**:
+   - Test on multiple devices and screen sizes
+   - Test all user flows and features
+   - Verify API integration works correctly
+
+2. **Troubleshooting**:
+   - Check the Metro bundler logs for errors
+   - Use `console.log()` for debugging (remove before production)
+   - For iOS-specific issues, check Xcode logs
+   - For Android-specific issues, check logcat
+
+### 9. Common Issues and Solutions
+
+- **Metro bundler issues**: Try clearing the cache with `expo start --clear`
+- **Dependency issues**: Ensure all dependencies are properly installed with `npm install`
+- **Build errors**: Check that your environment variables are correctly set
+- **API connection issues**: Verify your Replicate API key is valid
+
+### 10. Deployment
+
+1. **App Store/Play Store**:
+   - Configure app.json with appropriate values
+   - Use EAS Build to create distribution builds
+   - Follow the respective store guidelines for submission
+
+2. **Web Deployment**:
+   - Build for web with `npm run build:web`
+   - Deploy the resulting build to your preferred hosting service
 
 ## API Integration
 
@@ -84,5 +154,4 @@ Parameters that can be adjusted include:
 
 ## License
 
-MIT # cartonify.com-app
-# cartonify.com-app
+MIT
